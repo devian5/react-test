@@ -6,7 +6,11 @@ import './Home.css'
 const Home = (props) => {
     return (
         <div className='homeContainer'>
+            <div>
+                <Button1 name='Login' destination='login'/>
+            </div>
             <Button1 name='Register' destination='register'/>
+            
         </div>
     )
 }

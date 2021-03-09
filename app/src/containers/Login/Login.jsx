@@ -1,34 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
+import './Login.css'
 
-export class Login extends Component {
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-            email: '',
-            password: ''
-        }
-    }
-
-    componentDidMount() {
-        //cunado el comopente se monta
-    };
-    
-    componentDidUpdate() {
-        //cuando el componente se actualiza
-    };
-
-    componentWillUnmount() {
-        //cuando el componente se desmonta
-    };
-    
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+const Login = () => {
+    return (
+        <div className='loginContainer'>
+            Soy el login
+        </div>
+    )
 }
 
 export default Login

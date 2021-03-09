@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';//put useEffect
+import React, { useState } from 'react';//put useEffect
 import axios from 'axios'
+import checkError from '../../utilis/util'
 import Button1 from '../../components/Buttons/Button1';
 import './Register.css';
 
@@ -12,12 +13,14 @@ const Register = (props) => {
         password: ''
     });
 
+    const [message, setMessage] = useState('');
 
-    useEffect(() => {
-       if(!user.name === ''){
-            console.log(user.name);
-       }
-    });
+
+    // useEffect(() => {
+    //    if(user.name !== ''){
+    //         console.log(user);
+    //    }
+    // });
 
     // useEffect(() => {
         
@@ -44,6 +47,20 @@ const Register = (props) => {
 
     const sendData = async () => {
         console.log('se ha enviado');
+        // const arrayDataState = [{name: user.name},{email: user.email},{password: user.password}]
+        // checkError(user)
+
+        //Comprobación de errores
+        
+        setMessage('');
+       
+        let errorMessage = checkError(user);
+
+        setMessage(errorMessage);
+
+        if(errorMessage){
+            return;
+        }
 
         const body = {
             name: user.name,
@@ -71,6 +88,7 @@ const Register = (props) => {
             <button onClick={()=> sendData()}>Send to Backend</button>
             This is Register
             <Button1 name='Home' destination=''/>
+            <div>{message}</div>
         </div>
     )
 }
